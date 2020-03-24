@@ -2,7 +2,12 @@ version: '3'
 services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
-    command: ["elasticsearch", "-E", "discovery.type=single-node"]
+    environment:
+      - node.name=foo
+      - discovery.type=single-node
+#      - xpack.license.self_generated.type=trial
+#      - xpack.security.enabled=true
+#      - ELASTIC_PASSWORD=changeme
     ports:
       - "9200:9200"
   kibana:
@@ -11,3 +16,7 @@ services:
     image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
     ports:
       - "5601:5601"
+    environment:
+#      - XPACK_SECURITY_ENABLED=true
+#      - ELASTICSEARCH_USERNAME=elastic
+#      - ELASTICSEARCH_PASSWORD=changeme
