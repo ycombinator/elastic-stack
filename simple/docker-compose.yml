@@ -16,7 +16,7 @@ services:
     image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
     ports:
       - "5601:5601"
-    environment:
+#    environment:
 #      - XPACK_SECURITY_ENABLED=true
 #      - ELASTICSEARCH_USERNAME=elastic
 #      - ELASTICSEARCH_PASSWORD=changeme
